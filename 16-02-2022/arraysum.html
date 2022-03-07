@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sum page</title>
+</head>
+<body>
+    <script lang="javascript">
+        var myInt=parseInt(prompt("enter a number"));
+  
+  
+  let myarr = num => Number(num);
+    
+  var intArr = Array.from(String(myInt), myarr);
+    
+        var sum=0;
+          for( var i=0;i<intArr.length; i++){
+              sum += intArr[i];
+          }
+          document.write(sum)
+    </script>
+
+    
+</body>
+</html>

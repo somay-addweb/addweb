@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function binarySearch(arr, l, r, x){
+            if (r >= l) {
+                let mid = l + Math.floor((r - l) / 2);
+        
+                if (arr[mid] == x)
+                    return mid;
+                if (arr[mid] > x)
+                    return binarySearch(arr, l, mid - 1, x);
+                return binarySearch(arr, mid + 1, r, x);
+            }
+            return -1;
+        }
+    var arr = [ 1,4,6,8,10,22,32,33];
+    var x = 10;
+    var n = arr.length;
+    var ans = binarySearch(arr, 0, n - 1, x);
+    if(ans==-1){
+        document.write("element not found")
+    }
+    else{
+        document.write("element is present in ",ans," index")
+    }
+    </script>
+</body>
+</html>

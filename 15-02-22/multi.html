@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>table</title>
+  </head>
+  <body>
+    <h1>enter the number</h1>
+    <form name="table">
+      <input type="text" name="t1">
+      <input type="button" value="show table" onclick="multi()">
+
+    </form>
+    <script>
+      function multi(){
+        var a,i,result;
+      a=  parseInt(table.t1.value);
+        for ( i = 1; i <= 10; i++) {
+          result=a*i;
+document.write("<br>"+result);
+        }
+      }
+
+
+
+    </script>
+
+  </body>
+</html>

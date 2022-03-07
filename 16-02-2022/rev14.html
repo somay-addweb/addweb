@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script lang="javascript"> 
+    var number=parseInt(prompt("enter a number"))
+    function reverse(number){
+    var rev_number=0;
+    while(number>0)
+    {
+        rev_number=rev_number*10+number%10;
+        number=Math.floor(number/10);
+
+    }
+    return rev_number;
+}
+document.write(reverse(number));
+    </script>
+</body>
+</html>

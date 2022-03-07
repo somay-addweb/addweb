@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="">
+        <input type="text id="fn" placeholder="enter your name"><br/>
+        <input type="password" id="pas" class="paswrd" placeholder="enter your passwoed here"><br/>
+       <button class="btn">sign up</button>
+    </form>
+  
+    <script>
+
+        let text= document.querySelector("#fn");
+        let pas=document.querySelector("#pas");
+        let submit=document.querySelector(".btn");
+         localStorage.setItem('user','somay')
+localStorage.setItem('paswrd','@123')
+
+let user=localStorage.getItem("user")
+let pass=localStorage.getItem("passwrd")
+    </script>
+</body>
+</html>

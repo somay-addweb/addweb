@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this</title>
+</head>
+<body>
+    <script>
+        var a={
+            fname : "somay",
+            lname :"sharma",
+            age: 20,
+            fvrt_city :["behror","alwar"],
+        salery : function(){
+          return "null"
+          console.log(this);//when it use in method of object it refer to owner of object 
+        }
+        //this is use in strict mode refer undefined
+
+        }
+        console.log(a);
+        //when this keyword use alone it refer to window as u can see in console means it refers to global objectand same in regular expression
+        a.salery();
+    </script>
+</body>
+</html>

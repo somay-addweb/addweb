@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function search(array, a, x)
+{
+        var i;
+        for (i = 0; i < a; i++)
+            if (array[i] == x)
+                return i;
+        return -1;
+}
+    var array= [ 10,2,3,1,3,1 ];
+    var x = 10;
+    var n = array.length;
+    var ans = search(array, a, x);
+    if(ans==-1){
+        document.write("element not found")
+    }
+    else{
+        document.write("element is present in ",ans," index")
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            var add=1
+            var num =parseInt( prompt("enter number"));
+
+            for(var i =2;i*i<num;i++)
+            {
+                if (num%i==0)
+                {
+                    if(i*i !=num)
+                    add= add+i + num/i;
+                }
+                else
+                add=add+i;
+            }
+            if (add==num && num !=1)
+            {
+                document.write(" this is prefect number ")
+            }
+            else{
+                document.write("this is not a perfect number")
+            }
+        
+        
+
+
+    </script>
+</body>
+</html>

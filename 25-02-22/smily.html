@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body #mysmily{
+            background-color: #00ffff;
+            border-radius: 15px 50px 30px;
+        }
+    </style>
+</head>
+
+<body>
+    
+    
+<canvas id="mysmily" height="500px" width="500px" style="border: 1px solid #000;"></canvas>
+
+<script>
+    var c =document.getElementById("mysmily");
+    var ctx=c.getContext("2d");
+    ctx.beginPath();
+    ctx.arc(240,240,200,0,4*Math.PI,false);//these value is use for cirumfrance of circle if we third value use to increse size of circle first value use increase width and scnd is used for height
+    ctx.fillStyle="yellow";//last value used for decrese circle radius
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(140,170,20,0,4*Math.PI,false);
+    ctx.fillStyle="white";
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(310,170,20,0,4*Math.PI,false);
+    ctx.fillStyle="white";
+    ctx.fill();
+
+
+    ctx.beginPath();
+    ctx.arc(140,170,12,0,4*Math.PI,false);
+    ctx.fillStyle="black";
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(310,170,12,0,4*Math.PI,false);
+    ctx.fillStyle="black";
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(240,290,120,0,1*Math.PI,false);
+    ctx.fillStyle="yellow";
+    ctx.strokeStyle="black";
+    ctx.stroke();
+    
+    ctx.setLineDash([5,15]);
+    ctx.moveTo(0, 50);
+ctx.lineTo(300, 50);
+ctx.fill();
+
+    
+</script>
+</body>
+
+</html>

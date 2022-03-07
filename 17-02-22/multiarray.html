@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a=[
+            ["sunny",21,"male","india"],
+            ["somay",20,"male","india"],
+            ["kajol",41,"male","india"],
+            ["akshay",51,"male","india"]
+        ];
+        //document.write(a + "<br/>");//this is the simple method to display multidimensional array
+        document.write("<table border='1px' cellspace='1'>");
+        document.write("<thead>")
+            document.write("<th> name</th>");
+            document.write("<th>age</th>");
+            document.write("<th>gender</th>");
+            document.write("<th>country</th>")
+        
+        for(var i=0;i<4;i++){
+            
+            document.write("<tr>");
+            for(var j=0;j<4;j++){//this is the example of nested loop
+            
+            document.write( "<td>" + a[i][j] + "</td>");}
+            ///so in thi Way we can use loop
+        document.write("</tr>");
+
+
+
+        } 
+        document.write("</thead>")
+        document.write("</table>");//so in this way we can store the data in multidimensional array
+
+        
+        
+        </script> 
+        </body>
+</html>

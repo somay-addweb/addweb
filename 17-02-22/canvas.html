@@ -1,0 +1,49 @@
+<!-- <!DOCTYPE html> -->
+<!-- <html lang="en"> -->
+<!-- <head> -->
+    <!-- <meta charset="UTF-8"> -->
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<canvas id="myCanvas" width="300" height="100" style="border:1rem solid #6d6a6a;">
+Your browser does not support the HTML canvas tag.</canvas>
+
+<script>
+var c = document.getElementById("myCanvas");//here we can add javascript in this way  during canvas we have idd
+var ctx = c.getContext("2d");//now in this
+ctx.font = "30px Arial";
+//ctx.fillText("Hello World",10,50);// here fill text is simple ffunction
+ctx.strokeText("hello world",10,50);// this function is used for stroke text as u can see on  html page
+</script>
+
+
+</body> -->
+<!-- </html> -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>use this image:</p>
+<img id="scream" src="photo3.jpg" alt="The Scream" width="220" height="277">
+
+<p>Canvas for fill:</p>
+<canvas id="myCanvas" width="250" height="300"
+style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML canvas tag.</canvas>
+
+<p><button onclick="myCanvas()">Try it</button></p>
+
+<script>
+function myCanvas() {
+  var c = document.getElementById("myCanvas");//this is used for image on canvas and in this way we can give image 
+  var ctx = c.getContext("2d");
+  var img = document.getElementById("scream");
+  ctx.drawImage(img,10,10);
+}
+</script>
+
+</body>
+</html>

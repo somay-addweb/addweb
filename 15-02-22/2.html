@@ -1,0 +1,114 @@
+<html>
+<head>
+	<meta charset="utf-8">
+</head>
+<body>
+
+<script type="text/javascript">
+
+	document.write("first name:"+" "+localStorage.getItem("fname"));
+    document.write("<br><br>");
+    document.write("last name:"+" "+ localStorage.getItem("lname"));
+    document.write("<br><br>");
+    document.write("Address:"+" "+localStorage.getItem("add"));
+    document.write("<br><br>");
+    // document.write("video url:"+" "+localStorage.getItem("myVideo"))
+
+
+
+</script>
+
+
+
+  <video width="320" height="240" controls autoplay>
+    <source id="myVideo" type="video/mp4">
+
+  Your browser does not support the video tag.
+  </video><br><br>
+
+
+
+<button onclick="getLocation()">Try It</button>
+<meta name="viewport" content="initial-scale=1.0">
+		<meta charset="utf-8">
+		<style>
+		  #map {
+			height: 300px;
+			width: 600px;
+		  }
+		</style>
+	</head>
+	<body>
+		<div style="padding:10px">
+			<div id="map"></div>
+		</div>
+<p id="demo"></p>
+
+  <script>
+    var fullPath = localStorage.getItem('myVideo');
+    if (fullPath) {
+    var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
+    var filename = fullPath.substring(startIndex);
+    if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+        filename = filename.substring(1);
+    }
+    }
+    var video = document.getElementById("myVideo")
+    video.src= filename;
+    console.log(video.src)
+
+
+
+    var x = document.getElementById("demo");
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+      }
+    }
+
+    function showPosition(position) {
+
+      var latitude = position.coords.latitude; // YOUR LATITUDE VALUE
+			var longitude = position.coords.longitude; // YOUR LONGITUDE VALUE
+			fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=AIzaSyDWrOpmyoUJvHJR6GQl_GZRWyDGN4skc7w`)
+      .then(response => response.json()).then(response =>{
+        let allDetails = response.results[0].components;
+        console.table(allDetails);
+        let {county, postcode, country} = allDetails;
+        x.innerText = `${county} ${postcode}, ${country}`;
+    }).catch(()=>{
+        x.innerText = "Something went wrong";
+    });
+      x.innerHTML = "Latitude: " + latitude +
+      "<br>Longitude: " + longitude;
+      var myLatLng = {lat: latitude, lng: longitude};
+
+			map = new google.maps.Map(document.getElementById('map'), {
+			  center: myLatLng,
+			  zoom: 20
+
+			}
+      );
+    }
+
+    window.onload= function(){
+        const video= document.getElementById("myVideo");
+        const queryString =window.location.search;
+    }
+
+
+
+
+    </script>
+
+
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&callback=initMap"></script>
+
+
+
+
+</body>
+</html>
