@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+
+<html>
+   <head>
+      
+      <style>
+         #test {
+            width:350px;
+            height:350px;
+            /* margin: 0px auto; */
+         }
+      </style>
+      <script type = "text/javascript">
+         function drawShape() {
+            
+         
+            var canvas = document.getElementById('mycanvas');
+            
+            
+            if (canvas.getContext) {
+               
+              
+               var ctx = canvas.getContext('2d');
+               ctx.translate(300,300);
+               
+               for (i = 0; i<20; i++) {
+                  ctx.save();
+                  ctx.fillStyle = 'rgb('+(51*i)+','+(200-51*i)+',0)';
+                  
+                  for (j = 0; j < i*15; j++) {
+                     ctx.rotate(Math.PI*2/(i*4));
+                     ctx.beginPath();
+                     ctx.arc(0,i*12.5,5,0,Math.PI*2,true);
+                     ctx.fill();
+                  }
+                  ctx.restore();
+               }
+            } else {
+               alert('plese check your browser version.');
+            }
+         }
+      </script>
+   </head>
+   
+   <body id = "test" onload = "drawShape();">
+      <canvas id = "mycanvas" width = "550" height = "600"></canvas>
+
+
+
+<span>
+    <canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
+        plese check your browser.</canvas>
+</span>
+    
+    <script>
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.rotate(20 * Math.PI / 270);
+    ctx.fillRect(50, 20, 100, 50);
+    </script>
+    
+   </body>
+
+</html>

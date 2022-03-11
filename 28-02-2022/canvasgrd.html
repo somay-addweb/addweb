@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		HTML canvas translate() Method
+	</title>
+</head>
+
+<body>
+	
+		<h1 style="color:green">GeeksforGeeks</h1>
+		<canvas id="GFG" width="500" height="250"
+					style="border:2px solid gray">
+		</canvas>
+
+		<script>
+			var geeks = document.getElementById("GFG");
+			var contex = geeks.getContext("2d");
+			contex.translate(240, 100); 
+			contex.fillStyle = "#00FF00";
+			contex.fillRect(25, 25, 150, 100);
+		</script>
+
+	
+</body>
+
+</html>

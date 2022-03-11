@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+#div1 {
+  width: 300px;
+  height: 70px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+}
+</style>
+<script>
+function allowDrop(evv) {
+  evv.preventDefault();
+}
+
+function drag(ve) {
+  evv.dataTransfer.setData("text", evv.target.id);
+}
+
+function drop(evv) {
+  evv.preventDefault();
+  var data = ve.dataTransfer.getData("text");
+  evv.target.appendChild(document.getElementById(data));
+}
+</script>
+</head>
+<body>
+
+<p>Drag this image into the rectangle:</p>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<br>
+<img id="drag1" src="logo.png" draggable="true" ondragstart="drag(event)" width="336" height="69">
+
+</body>
+</html>
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+#div1 {
+  width: 300px;
+  height: 70px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+}
+</style>
+<script>
+function allowDrop(ve) {
+  ve.preventDefault();
+}
+
+function drag(ve) {
+  ve.dataTransfer.setData("text", ve.target.id);
+}
+
+function drop(ve) {
+  ve.preventDefault();
+  var data = ve.dataTransfer.getData("text");
+  ve.target.appendChild(document.getElementById(data));
+}
+</script>
+</head>
+<body>
+
+<p>Drag this image into the rectangle:</p>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<br>
+<img id="drag1" src="logo.png" draggable="true" ondragstart="drag(event)" width="336" height="69">
+
+</body>
+</html>

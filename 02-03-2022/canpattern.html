@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<style>
+    body{ background-color:white; }
+    #canvas{border:1px solid red; }
+    
+</style>
+<script>
+window.onload=(function(){
+
+   
+    var canvas=document.getElementById("canvas");
+    var ctx=canvas.getContext("2d");
+
+
+    var patternImage=new Image();
+   
+    patternImage.onload=function(){
+      
+        var pattern = ctx.createPattern(patternImage,'repeat');
+       
+        ctx.fillStyle=pattern;
+        
+        ctx.fillRect(50,50,250,200);
+        
+        ctx.strokeRect(50,50,250,200);
+    }
+    patternImage.src='http://i.stack.imgur.com/K9EZl.png';
+
+}); 
+</script>
+</head>
+<body>
+    <canvas id="canvas" width=325 height=250></canvas>
+</body>
+</html>
