@@ -1,7 +1,7 @@
 <?php
 if (!isset($_COOKIE["username"]=="");
 {
-    header(location:cookie2.php );
+    header(location:cookie2.1.php );
 }
 
 <?php
