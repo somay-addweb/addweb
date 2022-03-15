@@ -1,4 +1,5 @@
 <?php
+
 if(isset($_REQUEST["login"])){
     setcookie("user",$_POST["username"],time()+3600);
 header('location:login2.php');

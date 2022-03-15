@@ -1,17 +1,19 @@
 <?php
-if(isset($_COOKIE["user"])){
+error_reporting(0);
+if(!isset($_COOKIE["user"])){
     header('location:login.php');
 
 }
 else{
     echo $_COOKIE["user"];
-    echo" <form method=post> <input type=submit name =logout></form>";
+    echo "<form method=post> <input type=submit name =logout value=logot></form>";
+
+
+if($_POST["logout"]){
+    setcookie("user",time()-3600);
+header("location:login.php");
 }
 
-if(isset($_REQUEST["lgt"])){
-    setcookie("user",$_POST["username"] ,time()-3600);
-header('location:login.php');
 }
-
-
+?>
 
