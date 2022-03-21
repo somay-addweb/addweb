@@ -23,7 +23,7 @@ if(isset($_GET['Add'])){
     $a=$_GET['fvalue'];
     $b=$_GET['svalue'];
 
-    echo "<a href=queryselector2.php=?fvalue=$a&svalue=$b&btn1=Add>Edit</a>";
+    echo "<a href=queryselector2.php?fvalue=$a&svalue=$b&btn1=Add>Edit</a>";
 }
 if(isset($_GET['Sub'])){
     $a=$_GET['fvalue'];

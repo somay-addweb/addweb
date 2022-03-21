@@ -20,12 +20,12 @@
 <?php
 error_reporting(0);
 if(isset($_SESSION["user"])){
-    echo "incorrect";
+    echo "session start";
 }
 else{
 	$a=$_POST['fname'];
 	$b=$_POST['password'];
-if($a=='somay' && $b=='123')
+if($a=='somay' && $b=='1234')
 {
 	session_start();
 	$_SESSION["user"]=$a;

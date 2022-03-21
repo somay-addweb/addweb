@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+ 
+*,
+
+*::after,
+
+*::before{
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+:active,
+:hover,
+:focus{
+    outline: 0 !important;
+    outline-offset: 0;
+}
+a,
+ a:hover{
+     text-decoration: none;
+ }
+ a:hover{
+     color: var(#fff) !important;
+ }
+ 
+ ul,
+ ol{
+     margin: 0;
+     padding: 0;
+    }
+ :root{
+--primary-color: #6f4e37;
+--secondry-color: #ADD8E6;
+--white-color: #fff;
+--text-color: #b0b0b0;
+--black-color:#000; 
+--primary-font:'roboto', sans-serif;
+--secondry-font:'Quicksand', sans-serif;
+
+
+ }
+ html{
+     scroll-behavior: smooth;
+ }
+ body{
+     font-family:var(--primary-color) ;
+     font-size: 100%;
+     font-weight: 400;
+ }
+ /* custom scroll bar in the website  */
+ /*  webkit only use in the chorme or firefox */
+ ::-webkit-scrollbar{
+     width: 0.65rem;
+ }
+ ::-webkit-scrollbar-track{
+background: var(--white-color);
+ }
+ ::-webkit-scrollbar-thumb{
+     background: var(--secondry-color);
+ }
+ /* custom css design  */
+ 
+ h1{
+     font-size: 58px;
+     font-weight: 900;
+     margin-bottom: 1rem;
+     color: var(--white-color);
+     text-shadow: 1px 0 6px #000;
+ }
+ h1 span{
+     color: var(--primary-color);
+ }
+ h2{
+     font-size: 700 ;
+     font-weight:2rem ;
+     text-transform: capitalize;
+     font-family: var(--secondry-font);
+     color: var(--secondry-color);
+     line-height: 3rem;
+ }
+ h4{
+     color: var(--secondry-color);
+     font-family: var(--secondry-font);
+     text-transform: capitalize;
+     margin-bottom:0.5rem ;
+     font-size: 1.25rem;
+     font-weight: 800;
+ }
+ h5{
+    color: var(--black-color);
+    font-family: var(--secondry-font);
+    text-transform: capitalize;
+    margin-bottom:0.5rem ;
+    font-size: 1rem;
+    font-weight: 700;
+}
+p{
+    font-size: 1rem;
+    color: var(--text-color);
+    font-weight: 400;
+    line-height: 1.75;
+    letter-spacing: 0px;
+}
+.main-btn{
+    display: inline-block;
+    padding:o.625rem 1.875rem;
+    line-height: 1.5625rem;
+    background-color: var(--primary-color);
+border: 0.1875rem solid var(--primary-color);
+color: var(--black-color);
+font-size:0.9375rem ;
+font-weight: 600;
+text-transform: capitalize;
+border-radius:0.5rem ;
+box-shadow:0px 2px 10px -1px rgb(0 0 0 / 19%);
+-webkit-transition: all .4s ease-out 0s;
+-o-transition: all .4s ease-out 0;
+-moz-transition: all .4s ease-out 0;
+transition: all .4s ease-out 0;
+}
+.main-btn:hover{
+    background-color: transparent;
+    color: var(--secondry-color);
+}
+.wrapper{
+    padding-top: 4.25rem;
+    padding-bottom: 4.25rem;
+}
+.text-content{
+    width: 70%;
+    margin: auto;
+}
+/*  for header design we use this */
+.navigation-wrap{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    z-index: 1000;
+    transition: all 0.3s ease-out;
+    -webkit-transition:  all 0.3s ease-out;
+}
+.navigation-wrap .nav-item{
+    padding: 0 0.625rem;
+    transition: all 0.3s linear;
+}
+.navbar-toggler:focus{
+    outline: unset;
+    border: unset;
+    box-shadow: none;
+}
+.nav-link{
+    font: size 0.9375em; ;
+    font-weight: 600;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    color: var(--secondry-color);
+}
+.nav-link:hover,.nav-link.active{
+    color: var(--secondry-color) !important;
+}
+.navigation-wrap .main-btn{
+    padding: 0.3125rem 1.4375rem;
+    box-shadow: none;
+    margin-left: 0.625rem;
+}
+/* here is chnaging navigation bar on */
+
+ 
