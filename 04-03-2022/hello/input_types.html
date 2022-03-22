@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>HTML5 Color Input Type</title>
+<script>
+    function getValue() {
+        var color = document.getElementById("mycolor").value;
+        var number = document.getElementById("mynumber").value;
+        var datetime = document.getElementById("mydatetime").value;
+        var email = document.getElementById("myemail").value;
+        var number = document.getElementById("mynumber").value;
+        var range = document.getElementById("range").value;
+        var search = document.getElementById("mysearch").value;
+        var tel = document.getElementById("myphone").value;
+        var time = document.getElementById("mytime").value;
+
+
+
+
+
+        document.write("The color is :"+ color + "<br>");
+        document.write("number is :" + number + "<br>");
+        document.write("date and time you selected :" + datetime + "<br>");
+        document.write("emial you entered " + email + "<br>")
+        document.write("Entered number is :" + number + "<br>")
+        document.write("range is :" + range+ "<br>");
+        document.write(search+ "<br>");
+        document.write("Tel number"  + tel + "<br>");
+        document.write("Time is : " + "<br>");
+
+    }   
+</script>   
+</head>
+<body>
+    <form>
+        <!-- Color Input Type -->
+        <label for="mycolor">Select Color:</label>
+        <input type="color" value="#00ff00" id="mycolor"  ><br><br>
+    
+        <!-- Range Input Type -->
+        <label for="mynumber">Select a Number:</label>
+        <input type="range" min="1" max="10" step="0.5" id="mynumber"> <br><br>
+        
+
+        <!-- Date-Time input type -->
+        <label for="mydatetime" >Choose Date and Time:</label>
+        <input type="datetime-local" id="mydatetime" required><br><br>
+
+
+        <!-- Email input type  -->
+        <label for="myemail">Enter Email Address:</label>
+        <input type="email" id="myemail" required> <br><br>
+
+
+        <!-- number input type -->
+        <label for="mynumber">Enter a Number:</label>
+        <input type="number" min="1" max="10" step="0.5" id="mynumber"><br><br>
+
+
+        <!-- range input type -->
+        <label for="mynumber">Select a Number:</label>
+        <input type="range" min="1" max="10" step="0.5" id="range">  <br><br>
+
+
+
+        <!-- search input type -->
+        <label for="mysearch">Search Website:</label>
+        <input type="search" id="mysearch"><br><br>
+
+
+        <!-- phone number input type -->
+        <label for="myphone">Telephone Number:</label>
+        <input type="tel" id="myphone" placeholder="xx-xxxx-xxxx" required><br><br>
+
+        <!-- time  -->
+        <label for="mytime">Select Time:</label><br><br>
+        <input type="time" id="mytime">
+    </form>
+
+   <button onclick="getValue()"> Submit</button>
+</body>
+</html>                            
