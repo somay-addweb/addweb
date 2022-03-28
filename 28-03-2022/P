@@ -1,0 +1,443 @@
+somay@somay-Swift-SF314-511:~$ sudo/opt/lampp/lampp start;
+bash: sudo/opt/lampp/lampp: No such file or directory
+somay@somay-Swift-SF314-511:~$ sudo/opt/lampp/lampp start
+bash: sudo/opt/lampp/lampp: No such file or directory
+somay@somay-Swift-SF314-511:~$ sudo /opt/lampp/lampp start
+[sudo] password for somay: 
+Starting XAMPP for Linux 7.4.27-2...
+XAMPP: Starting Apache...already running.
+XAMPP: Starting MySQL...already running.
+XAMPP: Starting ProFTPD...already running.
+somay@somay-Swift-SF314-511:~$ sudo /opt/lampp/bin/mysql -u root -p
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 25
+Server version: 10.4.22-MariaDB Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databses
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'databses' at line 1
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| TASK3              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| task               |
+| task1              |
+| task3              |
+| test               |
++--------------------+
+9 rows in set (0.000 sec)
+
+MariaDB [(none)]> create databse employee;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'databse employee' at line 1
+MariaDB [(none)]> create database employee;
+Query OK, 1 row affected (0.000 sec)
+
+MariaDB [(none)]> show databases
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| TASK3              |
+| employee           |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| task               |
+| task1              |
+| task3              |
+| test               |
++--------------------+
+10 rows in set (0.001 sec)
+
+MariaDB [(none)]> use employee;
+Database changed
+MariaDB [employee]> create table personal(id bigint(10) auto_increment primary key,name varcahr(20),address varchar(20),mobile bigint(20));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(20),address varchar(20),mobile bigint(20))' at line 1
+MariaDB [employee]> CREATE TABLE PERSONAL(ID BIGINT(20)AUTO_INCREMENT PRIMARY KEY,NAME VARCHAR(20),ADD VARCHAR(20), MOBILE BIGINT(10));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ADD VARCHAR(20), MOBILE BIGINT(10))' at line 1
+MariaDB [employee]> CREATE TABLE PERSONAL(ID BIGINT(20)AUTO_INCREMENT PRIMARY KEY,'NAME' VARCHAR(20),'ADD' VARCHAR(20),'MOBILE' BIGINT(10));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''NAME' VARCHAR(20),'ADD' VARCHAR(20),'MOBILE' BIGINT(10))' at line 1
+MariaDB [employee]> CREATE TABLE PERSONAL(ID INT(10)AUTO_INCREMENT PRIMARY KEY, NAME VARCHAR(20),ADDRESS VARCHAR(20),MOBILE BIGINT(10));
+Query OK, 0 rows affected (0.011 sec)
+
+MariaDB [employee]> SELECT * FROM PERSONAL;
+Empty set (0.001 sec)
+
+MariaDB [employee]> INSERT INTO PERSONAL VALUE('SOMAY','BEHROR','23455676');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+MariaDB [employee]> INSERT INTO PERSONAL VALUE('','SOMAY','BEHROR','23455676');
+ERROR 1366 (22007): Incorrect integer value: '' for column `employee`.`PERSONAL`.`ID` at row 1
+MariaDB [employee]> INSERT INTO PERSONAL VALUE('1','SOMAY','BEHROR','23455676'); 
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [employee]> INSERT INTO PERSONAL VALUE('2','RONAK','KOTA','7654567');('3','PRATEEK','MANSAROVAR','98776898'),('4','DENTT','NARNOL','5645365'),('5','ANKIT','ALWAR','76766767'),('6','SANDY','JAIPUR','725665387');
+Query OK, 1 row affected (0.001 sec)
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''3','PRATEEK','MANSAROVAR','98776898'),('4','DENTT','NARNOL','5645365'),('5',...' at line 1
+MariaDB [employee]> INSERT INTO PERSONAL VALUE('2','RONAK','KOTA','7654567'),('3','PRATEEK','MANSAROVAR','98776898'),('4','DENTT','NARNOL','5645365'),('5','ANKIT','ALWAR','76766767'),('6','SANDY','JAIPUR','725665387');
+ERROR 1062 (23000): Duplicate entry '2' for key 'PRIMARY'
+MariaDB [employee]> INSERT INTO PERSONAL VALUE('8','RONAK','KOTA','7654567'),('3','PRATEEK','MANSAROVAR','98776898'),('4','DENTT','NARNOL','5645365'),('5','ANKIT','ALWAR','76766767'),('6','SANDY','JAIPUR','725665387');
+Query OK, 5 rows affected (0.002 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+MariaDB [employee]> SELECT * FROM PERSONAL;
++----+---------+------------+-----------+
+| ID | NAME    | ADDRESS    | MOBILE    |
++----+---------+------------+-----------+
+|  1 | SOMAY   | BEHROR     |  23455676 |
+|  2 | RONAK   | KOTA       |   7654567 |
+|  3 | PRATEEK | MANSAROVAR |  98776898 |
+|  4 | DENTT   | NARNOL     |   5645365 |
+|  5 | ANKIT   | ALWAR      |  76766767 |
+|  6 | SANDY   | JAIPUR     | 725665387 |
+|  8 | RONAK   | KOTA       |   7654567 |
++----+---------+------------+-----------+
+7 rows in set (0.000 sec)
+
+MariaDB [employee]> CREATE TABLE OFFICIAL(id bigint(10) primary key,DEPAT VARCHAR(10),DESG VARCHAR(10),EMAIL VARCHAR(20));
+Query OK, 0 rows affected (0.012 sec)
+
+MariaDB [employee]> INSERT INTO OFFICIAL VALUE(1,'SALES','TRAINEE','XYZ@MAIL.COM'),'SALES','TRAINEE','XYZ@MAIL.COM'),
+    -> 
+    -> 
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''SALES','TRAINEE','XYZ@MAIL.COM'),' at line 1
+MariaDB [employee]> INSERT INTO OFFICIAL VALUE(1,'SALES','TRAINEE','XYZ@MAIL.COM'),('2','DS','VP','YUT@MAIL.COM'),('3','ANALYST','AVP','GFD@MAIL.COM'),('4','XY','ADMIN','TEY@MAIL.COM'),('5','NETWORK','MANGER','PQRS@MAIL.COM'),('6','FULLSTACK','DEVLOPER','ABC@MAIL.COM'),
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+MariaDB [employee]> INSERT INTO OFFICIAL VALUE('1','SALES','TRAINEE','XYZ@MAIL.COM'),('2','DS','VP','YUT@MAIL.COM'),('3','ANALYST','AVP','GFD@MAIL.COM'),('4','XY','ADMIN','TEY@MAIL.COM'),('5','NETWORK','MANGER','PQRS@MAIL.COM'),('6','FULLSTACK','DEVLOPER','ABC@MAIL.COM'),
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+MariaDB [employee]> INSERT INTO OFFICIAL VALUE('1','SALES','TRAINEE','XYZ@MAIL.COM'),('2','DS','VP','YUT@MAIL.COM'),('3','ANALYST','AVP','GFD@MAIL.COM'),('4','XY','ADMIN','TEY@MAIL.COM'),('5','NETWORK','MANGER','PQRS@MAIL.COM'),('6','FULLSTACK','DEVLOPER','ABC@MAIL.COM');
+Query OK, 6 rows affected (0.006 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+MariaDB [employee]> CREATE TABLE HR(EMAIL VARCHAR(20),SALERY BIGINT(10),DEDUCTIONS INT(10));
+Query OK, 0 rows affected (0.007 sec)
+
+MariaDB [employee]> INSERT INTO HR VALUE('HGF@GMAIL.COM','45678','10%');
+ERROR 1265 (01000): Data truncated for column 'DEDUCTIONS' at row 1
+MariaDB [employee]> INSERT INTO HR VALUE('HGF@GMAIL.COM','45678','10');
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [employee]> INSERT INTO HR VALUE('HGF@GMAIL.COM','45678','10'),('HGF@GMAIL.COM','45678','10');
+Query OK, 2 rows affected (0.006 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+MariaDB [employee]> INSERT INTO HR VALUE('HGH4@GMAIL.COM','60000','40'),('GGFF@GMAIL.COM','536000','30');
+Query OK, 2 rows affected (0.008 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+MariaDB [employee]> SELECT * FROM HR;
++----------------+--------+------------+
+| EMAIL          | SALERY | DEDUCTIONS |
++----------------+--------+------------+
+| HGF@GMAIL.COM  |  45678 |         10 |
+| HGF@GMAIL.COM  |  45678 |         10 |
+| HGF@GMAIL.COM  |  45678 |         10 |
+| HGH4@GMAIL.COM |  60000 |         40 |
+| GGFF@GMAIL.COM | 536000 |         30 |
++----------------+--------+------------+
+5 rows in set (0.000 sec)
+
+MariaDB [employee]> UPDATE HR SET EMAIL =GHH@GMAIL.COM WHERE SELERY=45678;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '@GMAIL.COM WHERE SELERY=45678' at line 1
+MariaDB [employee]> UPDATE HR 
+    -> SET EMAIL='HGH@GMAIL.COM'
+    -> WHERE SALERY=45678;
+Query OK, 3 rows affected (0.004 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+MariaDB [employee]> CREATE VIEW VWEMP AS SELECT P.ID,P.NAME,O.DESG,O.DEPT,H.EMAIL,H.SALERY FROM PERSONAL P JOIN OFFICIAL O ON  P.ID JOIN HR H ON O.EMAIL=H.EMAIL;
+ERROR 1054 (42S22): Unknown column 'O.DEPT' in 'field list'
+MariaDB [employee]> CREATE VIEW VWEMP AS SELECT P.ID,P.NAME,O.DESG,O.DEPAT,H.EMAIL,H.SALERY FROM PERSONAL P JOIN OFFICIAL O ON  P.ID JOIN HR H ON O.EMAIL=H.EMAIL;
+Query OK, 0 rows affected (0.006 sec)
+
+MariaDB [employee]> SELECT * FROM VWEMP;
+Empty set (0.001 sec)
+
+MariaDB [employee]> SELECT P.ID,P.NAME,O.DESG,O.DEPAT,H.EMAIL,H.SALERY FROM PERSONAL P JOIN OFFICIAL O ON  P.ID JOIN HR H ON O.EMAIL=H.EMAIL;
+Empty set (0.001 sec)
+
+MariaDB [employee]> SELECT * FROM PERSONAL;
++----+---------+------------+-----------+
+| ID | NAME    | ADDRESS    | MOBILE    |
++----+---------+------------+-----------+
+|  1 | SOMAY   | BEHROR     |  23455676 |
+|  2 | RONAK   | KOTA       |   7654567 |
+|  3 | PRATEEK | MANSAROVAR |  98776898 |
+|  4 | DENTT   | NARNOL     |   5645365 |
+|  5 | ANKIT   | ALWAR      |  76766767 |
+|  6 | SANDY   | JAIPUR     | 725665387 |
+|  8 | RONAK   | KOTA       |   7654567 |
++----+---------+------------+-----------+
+7 rows in set (0.000 sec)
+
+MariaDB [employee]> SELECT * FROM OFFICIAL;
++----+-----------+----------+---------------+
+| id | DEPAT     | DESG     | EMAIL         |
++----+-----------+----------+---------------+
+|  1 | SALES     | TRAINEE  | XYZ@MAIL.COM  |
+|  2 | DS        | VP       | YUT@MAIL.COM  |
+|  3 | ANALYST   | AVP      | GFD@MAIL.COM  |
+|  4 | XY        | ADMIN    | TEY@MAIL.COM  |
+|  5 | NETWORK   | MANGER   | PQRS@MAIL.COM |
+|  6 | FULLSTACK | DEVLOPER | ABC@MAIL.COM  |
++----+-----------+----------+---------------+
+6 rows in set (0.000 sec)
+
+MariaDB [employee]> SELECT * FROM HR;
++----------------+--------+------------+
+| EMAIL          | SALERY | DEDUCTIONS |
++----------------+--------+------------+
+| HGH@GMAIL.COM  |  45678 |         10 |
+| HGH@GMAIL.COM  |  45678 |         10 |
+| HGH@GMAIL.COM  |  45678 |         10 |
+| HGH4@GMAIL.COM |  60000 |         40 |
+| GGFF@GMAIL.COM | 536000 |         30 |
++----------------+--------+------------+
+5 rows in set (0.000 sec)
+
+MariaDB [employee]> UPDATE OFFICIAL SET EMAIL =HGH@GMAIL.COM WHERE ID=1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '@GMAIL.COM WHERE ID=1' at line 1
+MariaDB [employee]> UPDATE OFFICIAL SET EMAIL ='HGH@GMAIL.COM' WHERE ID=1;
+Query OK, 1 row affected (0.006 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [employee]> UPDATE OFFICIAL SET EMAIL ='HGH@GMAIL.COM' WHERE ID=2;
+Query OK, 1 row affected (0.005 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [employee]> UPDATE OFFICIAL SET EMAIL ='HGH@GMAIL.COM' WHERE ID=3;
+Query OK, 1 row affected (0.007 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [employee]> UPDATE OFFICIAL SET EMAIL ='HGH4@GMAIL.COM' WHERE ID=4;
+Query OK, 1 row affected (0.002 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [employee]> UPDATE OFFICIAL SET EMAIL ='GGFF@GMAIL.COM' WHERE ID=5;
+Query OK, 1 row affected (0.002 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [employee]> SELECT * FROM OFFICIAL;
++----+-----------+----------+----------------+
+| id | DEPAT     | DESG     | EMAIL          |
++----+-----------+----------+----------------+
+|  1 | SALES     | TRAINEE  | HGH@GMAIL.COM  |
+|  2 | DS        | VP       | HGH@GMAIL.COM  |
+|  3 | ANALYST   | AVP      | HGH@GMAIL.COM  |
+|  4 | XY        | ADMIN    | HGH4@GMAIL.COM |
+|  5 | NETWORK   | MANGER   | GGFF@GMAIL.COM |
+|  6 | FULLSTACK | DEVLOPER | ABC@MAIL.COM   |
++----+-----------+----------+----------------+
+6 rows in set (0.000 sec)
+
+MariaDB [employee]> SELECT * FROM VWEMP;
++----+---------+---------+---------+----------------+--------+
+| ID | NAME    | DESG    | DEPAT   | EMAIL          | SALERY |
++----+---------+---------+---------+----------------+--------+
+|  1 | SOMAY   | TRAINEE | SALES   | HGH@GMAIL.COM  |  45678 |
+|  1 | SOMAY   | TRAINEE | SALES   | HGH@GMAIL.COM  |  45678 |
+|  1 | SOMAY   | TRAINEE | SALES   | HGH@GMAIL.COM  |  45678 |
+|  1 | SOMAY   | VP      | DS      | HGH@GMAIL.COM  |  45678 |
+|  1 | SOMAY   | VP      | DS      | HGH@GMAIL.COM  |  45678 |
+|  1 | SOMAY   | VP      | DS      | HGH@GMAIL.COM  |  45678 |
+|  1 | SOMAY   | AVP     | ANALYST | HGH@GMAIL.COM  |  45678 |
+|  1 | SOMAY   | AVP     | ANALYST | HGH@GMAIL.COM  |  45678 |
+|  1 | SOMAY   | AVP     | ANALYST | HGH@GMAIL.COM  |  45678 |
+|  1 | SOMAY   | ADMIN   | XY      | HGH4@GMAIL.COM |  60000 |
+|  1 | SOMAY   | MANGER  | NETWORK | GGFF@GMAIL.COM | 536000 |
+|  2 | RONAK   | TRAINEE | SALES   | HGH@GMAIL.COM  |  45678 |
+|  2 | RONAK   | TRAINEE | SALES   | HGH@GMAIL.COM  |  45678 |
+|  2 | RONAK   | TRAINEE | SALES   | HGH@GMAIL.COM  |  45678 |
+|  2 | RONAK   | VP      | DS      | HGH@GMAIL.COM  |  45678 |
+|  2 | RONAK   | VP      | DS      | HGH@GMAIL.COM  |  45678 |
+|  2 | RONAK   | VP      | DS      | HGH@GMAIL.COM  |  45678 |
+|  2 | RONAK   | AVP     | ANALYST | HGH@GMAIL.COM  |  45678 |
+|  2 | RONAK   | AVP     | ANALYST | HGH@GMAIL.COM  |  45678 |
+|  2 | RONAK   | AVP     | ANALYST | HGH@GMAIL.COM  |  45678 |
+|  2 | RONAK   | ADMIN   | XY      | HGH4@GMAIL.COM |  60000 |
+|  2 | RONAK   | MANGER  | NETWORK | GGFF@GMAIL.COM | 536000 |
+|  3 | PRATEEK | TRAINEE | SALES   | HGH@GMAIL.COM  |  45678 |
+|  3 | PRATEEK | TRAINEE | SALES   | HGH@GMAIL.COM  |  45678 |
+|  3 | PRATEEK | TRAINEE | SALES   | HGH@GMAIL.COM  |  45678 |
+|  3 | PRATEEK | VP      | DS      | HGH@GMAIL.COM  |  45678 |
+|  3 | PRATEEK | VP      | DS      | HGH@GMAIL.COM  |  45678 |
+|  3 | PRATEEK | VP      | DS      | HGH@GMAIL.COM  |  45678 |
+|  3 | PRATEEK | AVP     | ANALYST | HGH@GMAIL.COM  |  45678 |
+|  3 | PRATEEK | AVP     | ANALYST | HGH@GMAIL.COM  |  45678 |
+|  3 | PRATEEK | AVP     | ANALYST | HGH@GMAIL.COM  |  45678 |
+|  3 | PRATEEK | ADMIN   | XY      | HGH4@GMAIL.COM |  60000 |
+|  3 | PRATEEK | MANGER  | NETWORK | GGFF@GMAIL.COM | 536000 |
+|  4 | DENTT   | TRAINEE | SALES   | HGH@GMAIL.COM  |  45678 |
+|  4 | DENTT   | TRAINEE | SALES   | HGH@GMAIL.COM  |  45678 |
+|  4 | DENTT   | TRAINEE | SALES   | HGH@GMAIL.COM  |  45678 |
+|  4 | DENTT   | VP      | DS      | HGH@GMAIL.COM  |  45678 |
+|  4 | DENTT   | VP      | DS      | HGH@GMAIL.COM  |  45678 |
+|  4 | DENTT   | VP      | DS      | HGH@GMAIL.COM  |  45678 |
+|  4 | DENTT   | AVP     | ANALYST | HGH@GMAIL.COM  |  45678 |
+|  4 | DENTT   | AVP     | ANALYST | HGH@GMAIL.COM  |  45678 |
+|  4 | DENTT   | AVP     | ANALYST | HGH@GMAIL.COM  |  45678 |
+|  4 | DENTT   | ADMIN   | XY      | HGH4@GMAIL.COM |  60000 |
+|  4 | DENTT   | MANGER  | NETWORK | GGFF@GMAIL.COM | 536000 |
+|  5 | ANKIT   | TRAINEE | SALES   | HGH@GMAIL.COM  |  45678 |
+|  5 | ANKIT   | TRAINEE | SALES   | HGH@GMAIL.COM  |  45678 |
+|  5 | ANKIT   | TRAINEE | SALES   | HGH@GMAIL.COM  |  45678 |
+|  5 | ANKIT   | VP      | DS      | HGH@GMAIL.COM  |  45678 |
+|  5 | ANKIT   | VP      | DS      | HGH@GMAIL.COM  |  45678 |
+|  5 | ANKIT   | VP      | DS      | HGH@GMAIL.COM  |  45678 |
+|  5 | ANKIT   | AVP     | ANALYST | HGH@GMAIL.COM  |  45678 |
+|  5 | ANKIT   | AVP     | ANALYST | HGH@GMAIL.COM  |  45678 |
+|  5 | ANKIT   | AVP     | ANALYST | HGH@GMAIL.COM  |  45678 |
+|  5 | ANKIT   | ADMIN   | XY      | HGH4@GMAIL.COM |  60000 |
+|  5 | ANKIT   | MANGER  | NETWORK | GGFF@GMAIL.COM | 536000 |
+|  6 | SANDY   | TRAINEE | SALES   | HGH@GMAIL.COM  |  45678 |
+|  6 | SANDY   | TRAINEE | SALES   | HGH@GMAIL.COM  |  45678 |
+|  6 | SANDY   | TRAINEE | SALES   | HGH@GMAIL.COM  |  45678 |
+|  6 | SANDY   | VP      | DS      | HGH@GMAIL.COM  |  45678 |
+|  6 | SANDY   | VP      | DS      | HGH@GMAIL.COM  |  45678 |
+|  6 | SANDY   | VP      | DS      | HGH@GMAIL.COM  |  45678 |
+|  6 | SANDY   | AVP     | ANALYST | HGH@GMAIL.COM  |  45678 |
+|  6 | SANDY   | AVP     | ANALYST | HGH@GMAIL.COM  |  45678 |
+|  6 | SANDY   | AVP     | ANALYST | HGH@GMAIL.COM  |  45678 |
+|  6 | SANDY   | ADMIN   | XY      | HGH4@GMAIL.COM |  60000 |
+|  6 | SANDY   | MANGER  | NETWORK | GGFF@GMAIL.COM | 536000 |
+|  8 | RONAK   | TRAINEE | SALES   | HGH@GMAIL.COM  |  45678 |
+|  8 | RONAK   | TRAINEE | SALES   | HGH@GMAIL.COM  |  45678 |
+|  8 | RONAK   | TRAINEE | SALES   | HGH@GMAIL.COM  |  45678 |
+|  8 | RONAK   | VP      | DS      | HGH@GMAIL.COM  |  45678 |
+|  8 | RONAK   | VP      | DS      | HGH@GMAIL.COM  |  45678 |
+|  8 | RONAK   | VP      | DS      | HGH@GMAIL.COM  |  45678 |
+|  8 | RONAK   | AVP     | ANALYST | HGH@GMAIL.COM  |  45678 |
+|  8 | RONAK   | AVP     | ANALYST | HGH@GMAIL.COM  |  45678 |
+|  8 | RONAK   | AVP     | ANALYST | HGH@GMAIL.COM  |  45678 |
+|  8 | RONAK   | ADMIN   | XY      | HGH4@GMAIL.COM |  60000 |
+|  8 | RONAK   | MANGER  | NETWORK | GGFF@GMAIL.COM | 536000 |
++----+---------+---------+---------+----------------+--------+
+77 rows in set (0.001 sec)
+
+MariaDB [employee]> CREATE VIEW VWSHOW AS SELECT * FROM PERSONAL WHERE ADRESS='JAIPUR';
+ERROR 1054 (42S22): Unknown column 'ADRESS' in 'where clause'
+MariaDB [employee]> CREATE VIEW VWSHOW AS SELECT * FROM PERSONAL WHERE ADDRESS='JAIPUR';
+Query OK, 0 rows affected (0.003 sec)
+
+MariaDB [employee]> ALTER VIEW VWEMP AS SELECT P.ID,P.NAME,O.DESG,O.DEPT,H.EMAIL,H.SALERY,P.ADDRESS FROM PERSONAL P JOIN OFFICIAL O ON P.ID=O.ID JOIN HR H ON O.EMAIL=H.EMAIL;
+ERROR 1054 (42S22): Unknown column 'O.DEPT' in 'field list'
+MariaDB [employee]> ALTER VIEW VWEMP AS SELECT P.ID,P.NAME,O.DESG,O.DEPAT,H.EMAIL,H.SALERY,P.ADDRESS FROM PERSONAL P JOIN OFFICIAL O ON P.ID=O.ID JOIN HR H ON O.EMAIL=H.EMAIL;
+Query OK, 0 rows affected (0.002 sec)
+
+MariaDB [employee]> SELECT * FROM VWSHOW;
++----+-------+---------+-----------+
+| ID | NAME  | ADDRESS | MOBILE    |
++----+-------+---------+-----------+
+|  6 | SANDY | JAIPUR  | 725665387 |
++----+-------+---------+-----------+
+1 row in set (0.001 sec)
+
+MariaDB [employee]> DROP VIEW VWSHOW;
+Query OK, 0 rows affected (0.000 sec)
+
+MariaDB [employee]> SELECT * FROM VWSHOW;
+ERROR 1146 (42S02): Table 'employee.VWSHOW' doesn't exist
+MariaDB [employee]> SELECT * FROM HR H WHERE SALARY>(SELECT SALARY FROM HR WHERE DEDUCTIONS=30);
+ERROR 1054 (42S22): Unknown column 'SALARY' in 'where clause'
+MariaDB [employee]> SELECT * FROM HR H WHERE SALERY>(SELECT SALERY FROM HR WHERE DEDUCTIONS=30);
+Empty set (0.001 sec)
+
+MariaDB [employee]> SELECT * FROM HR H WHERE SALERY>(SELECT SALERY FROM HR WHERE DEDUCTIONS=10);
+ERROR 1242 (21000): Subquery returns more than 1 row
+MariaDB [employee]> SELECT * FROM HR H WHERE SALERY>(SELECT SALERY FROM HR WHERE DEDUCTIONS=40);
++----------------+--------+------------+
+| EMAIL          | SALERY | DEDUCTIONS |
++----------------+--------+------------+
+| GGFF@GMAIL.COM | 536000 |         30 |
++----------------+--------+------------+
+1 row in set (0.001 sec)
+
+MariaDB [employee]> SELECT* FROM PERSONAL P WHERE ID=(SELECT ID FROM PERSONAL WHERE NAME=MOBILE);
+Empty set, 7 warnings (0.005 sec)
+
+MariaDB [employee]> UPDATE HR SET SALERY=SALERY+(SALERY*10/100)WHERE DEDUCTIONS IS NULL;
+Query OK, 0 rows affected (0.000 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+MariaDB [employee]> DELETE FROM OFFICIAL WHERE ID NOT IN(SELECT ID FROM PERSONAL);
+Query OK, 0 rows affected (0.005 sec)
+
+MariaDB [employee]> SELECT * FROM PERSONAL P WHERE NAME IN (SELECT ID FROM PERSONAL WHERE NAME<>'SOMAY');
+Empty set, 7 warnings (0.000 sec)
+
+MariaDB [employee]> SELECT * FROM PERSONAL P WHERE 5>(SELECT COUNT(*)FROM PERSONAL WHERE ID<6) ORDER BY NAME;
+Empty set (0.000 sec)
+
+MariaDB [employee]> SELECT EMAIL FROM HR SUM(SALERY)AS TOTAL SALERY;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SUM(SALERY)AS TOTAL SALERY' at line 1
+MariaDB [employee]> SELECT EMAIL FROM HR SUM(SALERY)AS 'TOTAL SALERY';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SUM(SALERY)AS 'TOTAL SALERY'' at line 1
+MariaDB [employee]> USE TASK3;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [TASK3]> SELECT ENAME,SUM(ESELERY) FROM MANGER;
++-------+--------------+
+| ENAME | SUM(ESELERY) |
++-------+--------------+
+| SOMAY |       410000 |
++-------+--------------+
+1 row in set (0.001 sec)
+
+MariaDB [TASK3]> SELECT ENAME(SELECT SUM(ESELERY FROM MANGER) FROM MANGER;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SELECT SUM(ESELERY FROM MANGER) FROM MANGER' at line 1
+MariaDB [TASK3]> SELECT ENAME(SELECT SUM(ESELERY) FROM MANGER) FROM MANGER;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SELECT SUM(ESELERY) FROM MANGER) FROM MANGER' at line 1
+MariaDB [TASK3]> SELECT ENAME,(SELECT SUM(ESELERY) FROM MANGER) FROM MANGER;
++-----------+-----------------------------------+
+| ENAME     | (SELECT SUM(ESELERY) FROM MANGER) |
++-----------+-----------------------------------+
+| SOMAY     |                            410000 |
+| RONAK     |                            410000 |
+| SANDY     |                            410000 |
+| DEEPANSHU |                            410000 |
+| ANKIT     |                            410000 |
+| PARTH     |                            410000 |
+| PRATEK    |                            410000 |
++-----------+-----------------------------------+
+7 rows in set (0.001 sec)
+
+MariaDB [TASK3]> SELECT * FROM MANGER WHERE5>(SELECT COUNT(*)FROM MANGER WHERE ESELERY<E.ESELERY)ORDER BY ESELERY;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '>(SELECT COUNT(*)FROM MANGER WHERE ESELERY<E.ESELERY)ORDER BY ESELERY' at line 1
+MariaDB [TASK3]> SELECT * FROM MANGER WHERE 5>(SELECT COUNT(*)FROM MANGER WHERE ESELERY<E.ESELERY)ORDER BY ESELERY;
+ERROR 1054 (42S22): Unknown column 'E.ESELERY' in 'where clause'
+MariaDB [TASK3]> SELECT * FROM MANGER WHERE 5>(SELECT COUNT(*)FROM MANGER WHERE ESELERY<ESELERY)ORDER BY ESELERY;
++-----------+------------+-----------+---------+----------+-----------+------------+----+
+| ENAME     | DEPT       | JOB       | ESELERY | DEPTNAME | COMMISION | JDATE      | ID |
++-----------+------------+-----------+---------+----------+-----------+------------+----+
+| ANKIT     | NETWORKING | SALES     |   30000 | 30       | 3000      | 2022-11-23 |  5 |
+| SOMAY     | DEVLOPING  | FULLSTACK |   50000 | 10       | 1000      | 2000-06-08 |  1 |
+| RONAK     | MARKETING  | SALES     |   60000 | 10       | 6000      | 2018-10-31 |  2 |
+| SANDY     | MARKETING  | SALES     |   60000 | 20       | 4000      | 2020-11-22 |  3 |
+| DEEPANSHU | ACCOUNT    | CLERK     |   60000 | 30       | 5000      | 2001-01-02 |  4 |
+| PRATEK    | IT         | DEVLOPER  |   70000 | 60       | 10000     | 2012-01-25 |  7 |
+| PARTH     | SOFTWARE   | maneger   |   80000 | 70       | 8000      | 2021-11-27 |  6 |
++-----------+------------+-----------+---------+----------+-----------+------------+----+
+7 rows in set (0.001 sec)
+
+MariaDB [TASK3]> SELECT * FROM MANGER WHERE MOD(ESELERY,2)=1;
+Empty set (0.000 sec)
+
+MariaDB [TASK3]> 
+
+

@@ -1,0 +1,351 @@
+[sudo] password for somay: 
+sudo: /opt/lampp: command not found
+somay@somay-Swift-SF314-511:~$ sudo /opt/lampp/lampp start
+Starting XAMPP for Linux 7.4.27-2...
+XAMPP: Starting Apache...ok.
+XAMPP: Starting MySQL...ok.
+XAMPP: Starting ProFTPD...ok.
+somay@somay-Swift-SF314-511:~$ sudo /opt/lampp/bin/mysql -u root -p
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 9
+Server version: 10.4.22-MariaDB Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| TASK3              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| task               |
+| task1              |
+| task3              |
+| test               |
++--------------------+
+9 rows in set (0.002 sec)
+
+MariaDB [(none)]> USE TASK3;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [TASK3]> SHOW TABLES;
++-----------------+
+| Tables_in_TASK3 |
++-----------------+
+| MANGER          |
++-----------------+
+1 row in set (0.000 sec)
+
+MariaDB [TASK3]> SELECT * FROM MANGER;
++-----------+------------+-----------+---------+----------+-----------+------------+----+
+| ENAME     | DEPT       | JOB       | ESELERY | DEPTNAME | COMMISION | JDATE      | ID |
++-----------+------------+-----------+---------+----------+-----------+------------+----+
+| SOMAY     | DEVLOPING  | FULLSTACK |   50000 | 10       | 1000      | 2000-06-08 |  1 |
+| RONAK     | MARKETING  | SALES     |   60000 | 10       | 6000      | 2018-10-31 |  2 |
+| SANDY     | MARKETING  | SALES     |   60000 | 20       | 4000      | 2020-11-22 |  3 |
+| DEEPANSHU | ACCOUNT    | CLERK     |   60000 | 30       | 5000      | 2001-01-02 |  4 |
+| ANKIT     | NETWORKING | SALES     |   30000 | 30       | 3000      | 2022-11-23 |  5 |
+| PARTH     | SOFTWARE   | maneger   |   80000 | 70       | 8000      | 2021-11-27 |  6 |
+| PRATEK    | IT         | DEVLOPER  |   70000 | 60       | 10000     | 2012-01-25 |  7 |
++-----------+------------+-----------+---------+----------+-----------+------------+----+
+7 rows in set (0.003 sec)
+
+MariaDB [TASK3]> SELECT DEPT FROM MANGER;
++------------+
+| DEPT       |
++------------+
+| DEVLOPING  |
+| MARKETING  |
+| MARKETING  |
+| ACCOUNT    |
+| NETWORKING |
+| SOFTWARE   |
+| IT         |
++------------+
+7 rows in set (0.001 sec)
+
+MariaDB [TASK3]> SELECT * FROM MANGER;
++-----------+------------+-----------+---------+----------+-----------+------------+----+
+| ENAME     | DEPT       | JOB       | ESELERY | DEPTNAME | COMMISION | JDATE      | ID |
++-----------+------------+-----------+---------+----------+-----------+------------+----+
+| SOMAY     | DEVLOPING  | FULLSTACK |   50000 | 10       | 1000      | 2000-06-08 |  1 |
+| RONAK     | MARKETING  | SALES     |   60000 | 10       | 6000      | 2018-10-31 |  2 |
+| SANDY     | MARKETING  | SALES     |   60000 | 20       | 4000      | 2020-11-22 |  3 |
+| DEEPANSHU | ACCOUNT    | CLERK     |   60000 | 30       | 5000      | 2001-01-02 |  4 |
+| ANKIT     | NETWORKING | SALES     |   30000 | 30       | 3000      | 2022-11-23 |  5 |
+| PARTH     | SOFTWARE   | maneger   |   80000 | 70       | 8000      | 2021-11-27 |  6 |
+| PRATEK    | IT         | DEVLOPER  |   70000 | 60       | 10000     | 2012-01-25 |  7 |
++-----------+------------+-----------+---------+----------+-----------+------------+----+
+7 rows in set (0.001 sec)
+
+MariaDB [TASK3]>  SELECT ENMAE,JOB FROM MANGER;
+ERROR 1054 (42S22): Unknown column 'ENMAE' in 'field list'
+MariaDB [TASK3]> SELECT ENAME,JOB FROM MANGER;
++-----------+-----------+
+| ENAME     | JOB       |
++-----------+-----------+
+| SOMAY     | FULLSTACK |
+| RONAK     | SALES     |
+| SANDY     | SALES     |
+| DEEPANSHU | CLERK     |
+| ANKIT     | SALES     |
+| PARTH     | maneger   |
+| PRATEK    | DEVLOPER  |
++-----------+-----------+
+7 rows in set (0.001 sec)
+
+MariaDB [TASK3]> SELECT ENAME,ESELERY FROM MANGER;
++-----------+---------+
+| ENAME     | ESELERY |
++-----------+---------+
+| SOMAY     |   50000 |
+| RONAK     |   60000 |
+| SANDY     |   60000 |
+| DEEPANSHU |   60000 |
+| ANKIT     |   30000 |
+| PARTH     |   80000 |
+| PRATEK    |   70000 |
++-----------+---------+
+7 rows in set (0.001 sec)
+
+MariaDB [TASK3]> SELECT ID,SUM(ESELERY)FROM MANGER;
++------+--------------+
+| ID   | SUM(ESELERY) |
++------+--------------+
+|    1 |       410000 |
++------+--------------+
+1 row in set (0.001 sec)
+
+MariaDB [TASK3]> SELECT ID,ESELERY+COMM AS TOTAL FROM MANGER GROUP BY ID;
+ERROR 1054 (42S22): Unknown column 'COMM' in 'field list'
+MariaDB [TASK3]> SELECT ID,ESELERY+COMMISION AS TOTAL FROM MANGER GROUP BY ID; 
++----+-------+
+| ID | TOTAL |
++----+-------+
+|  1 | 51000 |
+|  2 | 66000 |
+|  3 | 64000 |
+|  4 | 65000 |
+|  5 | 33000 |
+|  6 | 88000 |
+|  7 | 80000 |
++----+-------+
+7 rows in set (0.005 sec)
+
+MariaDB [TASK3]> SELECT ENAME,ESELERY* AS ANNUAL SELERY FROM MANGER;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AS ANNUAL SELERY FROM MANGER' at line 1
+MariaDB [TASK3]> SELECT ENAME,ESELERY*12 AS ANNUAL SELERY FROM MANGER;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SELERY FROM MANGER' at line 1
+MariaDB [TASK3]> SELECT ENAME,ESELERY*12 AS 'ANNUAL SELERY' FROM MANGER;
++-----------+---------------+
+| ENAME     | ANNUAL SELERY |
++-----------+---------------+
+| SOMAY     |        600000 |
+| RONAK     |        720000 |
+| SANDY     |        720000 |
+| DEEPANSHU |        720000 |
+| ANKIT     |        360000 |
+| PARTH     |        960000 |
+| PRATEK    |        840000 |
++-----------+---------------+
+7 rows in set (0.001 sec)
+
+MariaDB [TASK3]> SELECT ENAME FROM MANGER WHERE DEPTNAME=10;
++-------+
+| ENAME |
++-------+
+| SOMAY |
+| RONAK |
++-------+
+2 rows in set (0.001 sec)
+
+MariaDB [TASK3]> SELECT ENAME FROM MANGER WHERE JOB='CLERK' AND ESELERY>30000;
++-----------+
+| ENAME     |
++-----------+
+| DEEPANSHU |
++-----------+
+1 row in set (0.001 sec)
+
+MariaDB [TASK3]> SELECT ID,ENAME FROM MANGER WHERE COMMISION IS NOT NULL;
++----+-----------+
+| ID | ENAME     |
++----+-----------+
+|  1 | SOMAY     |
+|  2 | RONAK     |
+|  3 | SANDY     |
+|  4 | DEEPANSHU |
+|  5 | ANKIT     |
+|  6 | PARTH     |
+|  7 | PRATEK    |
++----+-----------+
+7 rows in set (0.001 sec)
+
+MariaDB [TASK3]> SELECT ID,ENAME FROM MANGER WHERE COMMISION IS NULL;
+Empty set (0.001 sec)
+
+MariaDB [TASK3]> SELECT ENAME FROM MANGER WHERE JOB='CLERK' OR JOB='SALES' OR JOB='DEVLOPER' AND ESELERY>30000;
++-----------+
+| ENAME     |
++-----------+
+| RONAK     |
+| SANDY     |
+| DEEPANSHU |
+| ANKIT     |
+| PRATEK    |
++-----------+
+5 rows in set (0.001 sec)
+
+MariaDB [TASK3]> SELECT ENAME FROM MANGER WHERE TO_CHAR(JDATE,'YYYY')>=5;
+ERROR 1558 (HY000): Column count of mysql.proc is wrong. Expected 21, found 20. Created with MariaDB 100108, now running 100422. Please use mysql_upgrade to fix this error
+MariaDB [TASK3]> SELECT ENAME FROM MANGER WHERE TO_CHAR(JDATE,'YYYY')>=2020;
+MariaDB [TASK3]> SELECT ENAME FROM MANGER WHERE JDATE<'2000-06-08' OR JDATE>'2001-01-02'
+    -> ;
++--------+
+| ENAME  |
++--------+
+| RONAK  |
+| SANDY  |
+| ANKIT  |
+| PARTH  |
+| PRATEK |
++--------+
+5 rows in set (0.000 sec)
+
+MariaDB [TASK3]> SELECT JDATE FROM DUAL;
+ERROR 1054 (42S22): Unknown column 'JDATE' in 'field list'
+MariaDB [TASK3]> SELECT JDATE FROM DUAL;
+ERROR 1054 (42S22): Unknown column 'JDATE' in 'field list'
+MariaDB [TASK3]> SELECT 'JDATE' FROM DUAL;
++-------+
+| JDATE |
++-------+
+| JDATE |
++-------+
+1 row in set (0.000 sec)
+
+MariaDB [TASK3]> SELECT JDATE FROM DUAL;
+ERROR 1054 (42S22): Unknown column 'JDATE' in 'field list'
+MariaDB [TASK3]> SELECT JDATE FROM MANGER;
++------------+
+| JDATE      |
++------------+
+| 2000-06-08 |
+| 2018-10-31 |
+| 2020-11-22 |
+| 2001-01-02 |
+| 2022-11-23 |
+| 2021-11-27 |
+| 2012-01-25 |
++------------+
+7 rows in set (0.001 sec)
+
+MariaDB [TASK3]> SELECT ENAME FROM MANGER;
++-----------+
+| ENAME     |
++-----------+
+| SOMAY     |
+| RONAK     |
+| SANDY     |
+| DEEPANSHU |
+| ANKIT     |
+| PARTH     |
+| PRATEK    |
++-----------+
+7 rows in set (0.000 sec)
+
+MariaDB [TASK3]> SELECT JOB FROM MANGER;
++-----------+
+| JOB       |
++-----------+
+| FULLSTACK |
+| SALES     |
+| SALES     |
+| CLERK     |
+| SALES     |
+| maneger   |
+| DEVLOPER  |
++-----------+
+7 rows in set (0.000 sec)
+
+MariaDB [TASK3]> SELECT NAME FROM TAB;
+ERROR 1146 (42S02): Table 'TASK3.TAB' doesn't exist
+MariaDB [TASK3]> SELECT NAME FROM MANGER;
+ERROR 1054 (42S22): Unknown column 'NAME' in 'field list'
+MariaDB [TASK3]> SHOW USER;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'USER' at line 1
+MariaDB [TASK3]> SHOW 'USER';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''USER'' at line 1
+MariaDB [TASK3]> SELECT ENAME FROM MANGER WHERE DEPTNAME IN (10,20,40) OR JOB IN (''CLERK,SALES,DEVLOPER);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'CLERK,SALES,DEVLOPER)' at line 1
+MariaDB [TASK3]> SELECT ENAME FROM MANGER WHERE DEPTNAME IN (10,20,40) OR JOB IN ('CLERK','SALES','DEVLOPER');
++-----------+
+| ENAME     |
++-----------+
+| SOMAY     |
+| RONAK     |
+| SANDY     |
+| DEEPANSHU |
+| ANKIT     |
+| PRATEK    |
++-----------+
+6 rows in set (0.001 sec)
+
+MariaDB [TASK3]> SELECT ENAME FROM MANGER WHERE ENAME LIKE 'S%';
++-------+
+| ENAME |
++-------+
+| SOMAY |
+| SANDY |
++-------+
+2 rows in set (0.000 sec)
+
+MariaDB [TASK3]> SELECT ENAME FROM MANGER LIKE '%S';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIKE '%S'' at line 1
+MariaDB [TASK3]> SELECT ENAME FROM MANGER WHERE ENAME LIKE '%S';
+Empty set (0.001 sec)
+
+MariaDB [TASK3]> SELECT ENAME FROM MANGER WHERE ENAME LIKE '%_A';
+Empty set (0.001 sec)
+
+MariaDB [TASK3]> SELECT ENAME FROM MANGER WHERE LENGTH (ENAME)=5;
++-------+
+| ENAME |
++-------+
+| SOMAY |
+| RONAK |
+| SANDY |
+| ANKIT |
+| PARTH |
++-------+
+5 rows in set (0.001 sec)
+
+MariaDB [TASK3]> SELECT ENAME FROM MANGER WHERE JOB NOT IN ('maneger');
++-----------+
+| ENAME     |
++-----------+
+| SOMAY     |
+| RONAK     |
+| SANDY     |
+| DEEPANSHU |
+| ANKIT     |
+| PRATEK    |
++-----------+
+6 rows in set (0.001 sec)
+
+MariaDB [TASK3]> SELECT ENAME FROM MANGER WHERE JOB NOT IN ('SALES','CLERK','DEVLOPER');
++-------+
+| ENAME |
++-------+
+| SOMAY |
+| PARTH |
++-------+

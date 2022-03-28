@@ -1,0 +1,369 @@
+somay@somay-Swift-SF314-511:~$ sudo /opt/lampp/lampp start
+[sudo] password for somay: 
+Starting XAMPP for Linux 7.4.27-2...
+XAMPP: Starting Apache...already running.
+XAMPP: Starting MySQL...already running.
+XAMPP: Starting ProFTPD...already running.
+somay@somay-Swift-SF314-511:~$ sudo /opt/lampp/bin/mysql_upgrade
+Phase 1/7: Checking and upgrading mysql database
+Processing databases
+mysql
+mysql.column_stats                                 OK
+mysql.columns_priv                                 OK
+mysql.db                                           OK
+mysql.event                                        OK
+mysql.func                                         OK
+mysql.gtid_slave_pos                               OK
+mysql.help_category                                OK
+mysql.help_keyword                                 OK
+mysql.help_relation                                OK
+mysql.help_topic                                   OK
+mysql.host                                         OK
+mysql.index_stats                                  OK
+mysql.innodb_index_stats                           OK
+mysql.innodb_table_stats                           OK
+mysql.plugin                                       OK
+mysql.proc                                         OK
+mysql.procs_priv                                   OK
+mysql.proxies_priv                                 OK
+mysql.roles_mapping                                OK
+mysql.servers                                      OK
+mysql.table_stats                                  OK
+mysql.tables_priv                                  OK
+mysql.time_zone                                    OK
+mysql.time_zone_leap_second                        OK
+mysql.time_zone_name                               OK
+mysql.time_zone_transition                         OK
+mysql.time_zone_transition_type                    OK
+mysql.user                                         OK
+Phase 2/7: Installing used storage engines... Skipped
+Phase 3/7: Fixing views
+Phase 4/7: Running 'mysql_fix_privilege_tables'
+Phase 5/7: Fixing table and database names
+Phase 6/7: Checking and upgrading tables
+Processing databases
+TASK3
+TASK3.MANGER                                       OK
+information_schema
+performance_schema
+phpmyadmin
+phpmyadmin.pma__bookmark                           OK
+phpmyadmin.pma__central_columns                    OK
+phpmyadmin.pma__column_info                        OK
+phpmyadmin.pma__designer_settings                  OK
+phpmyadmin.pma__export_templates                   OK
+phpmyadmin.pma__favorite                           OK
+phpmyadmin.pma__history                            OK
+phpmyadmin.pma__navigationhiding                   OK
+phpmyadmin.pma__pdf_pages                          OK
+phpmyadmin.pma__recent                             OK
+phpmyadmin.pma__relation                           OK
+phpmyadmin.pma__savedsearches                      OK
+phpmyadmin.pma__table_coords                       OK
+phpmyadmin.pma__table_info                         OK
+phpmyadmin.pma__table_uiprefs                      OK
+phpmyadmin.pma__tracking                           OK
+phpmyadmin.pma__userconfig                         OK
+phpmyadmin.pma__usergroups                         OK
+phpmyadmin.pma__users                              OK
+task
+task.E-state                                       OK
+task.books                                         OK
+task.consultant                                    OK
+task.ecommerce                                     OK
+task.employee                                      OK
+task.job                                           OK
+task.job_application                               OK
+task.order1                                        OK
+task.skill                                         OK
+task.students                                      OK
+task1
+task1.assigment                                    OK
+task1.benifits                                     OK
+task1.coverage                                     OK
+task1.division                                     OK
+task1.employee                                     OK
+task1.isurence_plan                                OK
+task1.order_items                                  OK
+task1.sales                                        OK
+task1.stores                                       OK
+task1.students                                     OK
+task3
+test
+Phase 7/7: Running 'FLUSH PRIVILEGES'
+OK
+somay@somay-Swift-SF314-511:~$ show db
+
+Command 'show' not found, but can be installed with:
+
+sudo apt install mailutils-mh  # version 1:3.7-2.1, or
+sudo apt install mmh           # version 0.4-2
+sudo apt install nmh           # version 1.7.1-6
+
+somay@somay-Swift-SF314-511:~$ show databases
+
+Command 'show' not found, but can be installed with:
+
+sudo apt install mailutils-mh  # version 1:3.7-2.1, or
+sudo apt install mmh           # version 0.4-2
+sudo apt install nmh           # version 1.7.1-6
+
+somay@somay-Swift-SF314-511:~$ sudo /opt/lampp/bin/mysql -u root -p
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 24
+Server version: 10.4.22-MariaDB Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> 
+MariaDB [(none)]> ;
+ERROR: No query specified
+
+MariaDB [(none)]> show databases
+    -> 
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| TASK3              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| task               |
+| task1              |
+| task3              |
+| test               |
++--------------------+
+9 rows in set (0.001 sec)
+
+MariaDB [(none)]> use TASK3;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [TASK3]> show tables;
++-----------------+
+| Tables_in_TASK3 |
++-----------------+
+| MANGER          |
++-----------------+
+1 row in set (0.000 sec)
+
+MariaDB [TASK3]> SELECT * FROM MANGER;
++-----------+------------+-----------+---------+----------+-----------+------------+----+
+| ENAME     | DEPT       | JOB       | ESELERY | DEPTNAME | COMMISION | JDATE      | ID |
++-----------+------------+-----------+---------+----------+-----------+------------+----+
+| SOMAY     | DEVLOPING  | FULLSTACK |   50000 | 10       | 1000      | 2000-06-08 |  1 |
+| RONAK     | MARKETING  | SALES     |   60000 | 10       | 6000      | 2018-10-31 |  2 |
+| SANDY     | MARKETING  | SALES     |   60000 | 20       | 4000      | 2020-11-22 |  3 |
+| DEEPANSHU | ACCOUNT    | CLERK     |   60000 | 30       | 5000      | 2001-01-02 |  4 |
+| ANKIT     | NETWORKING | SALES     |   30000 | 30       | 3000      | 2022-11-23 |  5 |
+| PARTH     | SOFTWARE   | maneger   |   80000 | 70       | 8000      | 2021-11-27 |  6 |
+| PRATEK    | IT         | DEVLOPER  |   70000 | 60       | 10000     | 2012-01-25 |  7 |
++-----------+------------+-----------+---------+----------+-----------+------------+----+
+7 rows in set (0.001 sec)
+
+MariaDB [TASK3]> SELECT INITCAP(ENAME)FROM MANGER;
+ERROR 1305 (42000): FUNCTION TASK3.INITCAP does not exist
+MariaDB [TASK3]> SELECT INITCAP('ENAME')FROM MANGER;
+ERROR 1305 (42000): FUNCTION TASK3.INITCAP does not exist
+MariaDB [TASK3]> SELECT LENGTH(ENMAE) FROM MANGER;
+ERROR 1054 (42S22): Unknown column 'ENMAE' in 'field list'
+MariaDB [TASK3]> SELECT LENGTH(ENAME) FROM MANGER;
++---------------+
+| LENGTH(ENAME) |
++---------------+
+|             5 |
+|             5 |
+|             5 |
+|             9 |
+|             5 |
+|             5 |
+|             6 |
++---------------+
+7 rows in set (0.000 sec)
+
+MariaDB [TASK3]> SELECT LENGTH('ENAME') FROM MANGER;
++-----------------+
+| LENGTH('ENAME') |
++-----------------+
+|               5 |
+|               5 |
+|               5 |
+|               5 |
+|               5 |
+|               5 |
+|               5 |
++-----------------+
+7 rows in set (0.000 sec)
+
+MariaDB [TASK3]> SELECT LENGTH(ENAME) FROM MANGER;
++---------------+
+| LENGTH(ENAME) |
++---------------+
+|             5 |
+|             5 |
+|             5 |
+|             9 |
+|             5 |
+|             5 |
+|             6 |
++---------------+
+7 rows in set (0.000 sec)
+
+MariaDB [TASK3]> SELECT INITCAP(ENAME) FROM MANGER;
+ERROR 1305 (42000): FUNCTION TASK3.INITCAP does not exist
+MariaDB [TASK3]> SELECT INITCAP('ENAME') "CAPITALS" FROM MANGER;
+ERROR 1305 (42000): FUNCTION TASK3.INITCAP does not exist
+MariaDB [TASK3]> SELECT DISTINCT(M.ENAME) FROM MANGER M,MANGER MWHERE M.ID=E.MGR;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'M.ID=E.MGR' at line 1
+MariaDB [TASK3]> SELECT ENAME FORM MANGER WHERE LENGTH(ENAME)>4;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'MANGER WHERE LENGTH(ENAME)>4' at line 1
+MariaDB [TASK3]> SELECT ENAME FORM MANGER WHERE LENGTH('ENAME')>4;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'MANGER WHERE LENGTH('ENAME')>4' at line 1
+MariaDB [TASK3]> SELECT ENAME FORM MANGER WHERE LENGTH('ENAME')>4;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'MANGER WHERE LENGTH('ENAME')>4' at line 1
+MariaDB [TASK3]> SELECT ENAME FROM MANGER WHERE LENGTH(ENAME)>4;
++-----------+
+| ENAME     |
++-----------+
+| SOMAY     |
+| RONAK     |
+| SANDY     |
+| DEEPANSHU |
+| ANKIT     |
+| PARTH     |
+| PRATEK    |
++-----------+
+7 rows in set (0.001 sec)
+
+MariaDB [TASK3]> SELECT ENAME FROM MANGER WHERE LENGTH(ENAME)>6;
++-----------+
+| ENAME     |
++-----------+
+| DEEPANSHU |
++-----------+
+1 row in set (0.000 sec)
+
+MariaDB [TASK3]> SELECT ENAME FROM MANGER WHERE LENGTH(ENAME)>5;
++-----------+
+| ENAME     |
++-----------+
+| DEEPANSHU |
+| PRATEK    |
++-----------+
+2 rows in set (0.001 sec)
+
+MariaDB [TASK3]> SELECT ENAME FROM MANGER WHERE ENAME LIKE 'S%' AND JOB LIKE '%R'
+    -> ;
+Empty set (0.000 sec)
+
+MariaDB [TASK3]> SELECT DEPT FROM MANGER WHERE ENAME LIKE 'S%' AND JOB LIKE '%K';
++-----------+
+| DEPT      |
++-----------+
+| DEVLOPING |
++-----------+
+1 row in set (0.000 sec)
+
+MariaDB [TASK3]> SELCET ENAME  FORM MANGER WHERE ENAME LIKE 'S%';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SELCET ENAME  FORM MANGER WHERE ENAME LIKE 'S%'' at line 1
+MariaDB [TASK3]> SELCET JOB  FORM MANGER WHERE ENAME LIKE 'S%';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SELCET JOB  FORM MANGER WHERE ENAME LIKE 'S%'' at line 1
+MariaDB [TASK3]> SELCET JOB  FORM MANGER WHERE ENAME LIKE S%;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SELCET JOB  FORM MANGER WHERE ENAME LIKE S%' at line 1
+MariaDB [TASK3]> SELECT JOB  FORM MANGER WHERE ENAME LIKE 'S%';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'MANGER WHERE ENAME LIKE 'S%'' at line 1
+MariaDB [TASK3]> SELECT JOB  FROM MANGER WHERE ENAME LIKE 'S%';
++-----------+
+| JOB       |
++-----------+
+| FULLSTACK |
+| SALES     |
++-----------+
+2 rows in set (0.000 sec)
+
+MariaDB [TASK3]> SELECT * FROM MANGER WHERE ENAME=SOMAY;
+ERROR 1054 (42S22): Unknown column 'SOMAY' in 'where clause'
+MariaDB [TASK3]> SELECT * FROM MANGER WHERE ENAME='SOMAY';
++-------+-----------+-----------+---------+----------+-----------+------------+----+
+| ENAME | DEPT      | JOB       | ESELERY | DEPTNAME | COMMISION | JDATE      | ID |
++-------+-----------+-----------+---------+----------+-----------+------------+----+
+| SOMAY | DEVLOPING | FULLSTACK |   50000 | 10       | 1000      | 2000-06-08 |  1 |
++-------+-----------+-----------+---------+----------+-----------+------------+----+
+1 row in set (0.001 sec)
+
+MariaDB [TASK3]> SELECT ENAME FROM MANGER WHERE JOB='SALES';
++-------+
+| ENAME |
++-------+
+| RONAK |
+| SANDY |
+| ANKIT |
++-------+
+3 rows in set (0.000 sec)
+
+MariaDB [TASK3]> SELECT ENAME,ESELERY FROM MANGER WHERE (ESELERY+ESELERY*2)>30000;
++-----------+---------+
+| ENAME     | ESELERY |
++-----------+---------+
+| SOMAY     |   50000 |
+| RONAK     |   60000 |
+| SANDY     |   60000 |
+| DEEPANSHU |   60000 |
+| ANKIT     |   30000 |
+| PARTH     |   80000 |
+| PRATEK    |   70000 |
++-----------+---------+
+7 rows in set (0.001 sec)
+
+MariaDB [TASK3]> SELECT ENAME FROM MANGER WHERE LENGTH(DEPT)=3;
+Empty set (0.000 sec)
+
+MariaDB [TASK3]> SELECT ENAME FROM MANGER WHERE DEPT='SALES';
+Empty set (0.000 sec)
+
+MariaDB [TASK3]> SELECT ENAME FROM MANGER WHERE DEPT='MARKETING'
+    -> ;
++-------+
+| ENAME |
++-------+
+| RONAK |
+| SANDY |
++-------+
+2 rows in set (0.001 sec)
+
+MariaDB [TASK3]> SELECT ENAME, DEPT,ESELERY,COMMISION FROM MANGER WHERE ESELERY BETWEEN '30000' TO '50000' AND JOB='SALES';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'TO '50000' AND JOB='SALES'' at line 1
+MariaDB [TASK3]> SELECT ENAME, DEPT,ESELERY,COMMISION FROM MANGER WHERE ESELERY BETWEEN 30000 TO 50000 AND JOB=SALES;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'TO 50000 AND JOB=SALES' at line 1
+MariaDB [TASK3]> SELECT ENAME, DEPT,ESELERY,COMMISION FROM MANGER WHERE ESELERY BETWEEN 30000 TO 50000 AND JOB='SALES';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'TO 50000 AND JOB='SALES'' at line 1
+MariaDB [TASK3]> SELECT ENAME, DEPT,ESELERY,COMMISION FROM MANGER WHERE DEPT=(SELECT DEPT FROM MANGER WHERE ESELERY BETWEEN 30000 TO 50000);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'TO 50000)' at line 1
+MariaDB [TASK3]> SELECT ENAME, DEPT,ESELERY,COMMISION FROM MANGER WHERE DEPT=(SELECT DEPT FROM MANGER WHERE JOB='SALES')AND ESELERY BETWEEN 30000 AND  50000;
+ERROR 1242 (21000): Subquery returns more than 1 row
+MariaDB [TASK3]> SELECT ENAME, DEPT,ESELERY,COMMISION FROM MANGER WHERE DEPT=(SELECT DEPT FROM MANGER WHERE JOB='FULLSTACK')AND ESELERY BETWEEN 30000 AND  50000;
++-------+-----------+---------+-----------+
+| ENAME | DEPT      | ESELERY | COMMISION |
++-------+-----------+---------+-----------+
+| SOMAY | DEVLOPING |   50000 | 1000      |
++-------+-----------+---------+-----------+
+1 row in set (0.001 sec)
+
+MariaDB [TASK3]> SELECT * FROM MANGER WHERE ESELERY> ELSELERY.manger;
+ERROR 1054 (42S22): Unknown column 'ELSELERY.manger' in 'where clause'
+MariaDB [TASK3]> SELECT * FROM MANGER WHERE ESELERY> ELSELERY.JOB;
+ERROR 1054 (42S22): Unknown column 'ELSELERY.JOB' in 'where clause'
+MariaDB [TASK3]> SELECT * FROM MANGER M  WHERE ESELERY>(SELECT ESELERY FROM MANGER WHERE ID=M.MGR)
+    -> ;
+ERROR 1054 (42S22): Unknown column 'M.MGR' in 'where clause'
+MariaDB [TASK3]> SELECT * FROM MANGER M  WHERE ESELERY>(SELECT ESELERY FROM MANGER WHERE ID=M.manger)
+    -> ;
+ERROR 1054 (42S22): Unknown column 'M.manger' in 'where clause'
+MariaDB [TASK3]> 
+
