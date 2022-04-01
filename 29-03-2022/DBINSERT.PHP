@@ -16,6 +16,7 @@
     </head>
 </html>
 <?php
+
 if(isset($_POST['insert'])){
 $name=$_POST['nme'];
 $job=$_POST['job'];
