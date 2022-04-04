@@ -1,9 +1,10 @@
 <html>
     <head>
+        <link rel="stylesheet" href="login1.css">
         <body>
-            <form method="post">
-              USERNAME:  <input type="text" name="user">
-               PASSWORD: <input type=password name="pass"> <br/>
+            <form method="post" class="container">
+              USERNAME:  <input type="text" name="user"><br><br>
+               PASSWORD: <input type=password name="pass"> <br/><br>
                Remember me:<input type="checkbox" name="rmb" value="Remberme"><br/>
         
                <input type="submit" name="insert" value="login">
